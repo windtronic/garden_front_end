@@ -1,5 +1,28 @@
-@import url(./styles/css/tokens.css);
-@import url(./styles/css/colors.module.css);
-@import url(./styles/css/typography.module.css);
-@import url(./styles/css/theme.light.css) (prefers-color-scheme: light);
-@import url(./styles/css/theme.dark.css) (prefers-color-scheme: dark);
+.App {
+    background-color: #f5f5f5;
+    font-style: bold;
+    text-align: center;
+    font-family: "Boogaloo";
+  }
+  
+  
+  /******************************************  PAGE  ****************************/
+  #header,
+  #navbar,
+  .pageContainer,
+  #footer {
+    margin: 0 auto;
+    max-width: 80vw;
+    min-width: 500px;
+    background-color: #e4673f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #header {
+    background-color: #6edcc4;
+    min-height: 90px;
+    font-size: clamp(40px, 13vw, 70px);
+    color: #2c2c2c;
+  }

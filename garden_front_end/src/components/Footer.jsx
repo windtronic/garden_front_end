@@ -1,4 +1,4 @@
-export default function GardenLayout() {
+export default function Footer() {
 
 
     return (
