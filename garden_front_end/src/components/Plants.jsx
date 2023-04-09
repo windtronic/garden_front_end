@@ -7,7 +7,8 @@ export default function Plants() {
 
   useEffect(() => {
     const getPlants = async () => {
-      const response = await axios.get(`http://localhost:8000/plants`);
+      const response = await axios.get(`http://localhost:8000/plants/`);
+      console.log(response.data)
       setPlants(response.data);
     };
     getPlants();
@@ -16,16 +17,12 @@ export default function Plants() {
   if (!plants) {
     return <h1>Loading, please wait...</h1>;
   } else {
-    
-    
     return (
       <div className="plant-list">
         {plants.map((plant) => (
-          <div key={plant.id}>
-            <Link to={`/plant/${plant.id}`}>
-              <p>{plant.name}</p>
-            </Link>
-          </div>
+          <Link to={`/plant_listings/${plant.id}`} key={plant.id}>
+            <h2>{plant.name}</h2>
+          </Link>
         ))}
       </div>
     );
@@ -33,3 +30,4 @@ export default function Plants() {
 }
 
 
+// setPlants(response.data.sort((a, b) => a.name.localeCompare(b.name)));

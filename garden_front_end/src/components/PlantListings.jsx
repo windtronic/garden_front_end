@@ -1,42 +1,43 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 
 export default function PlantListings() {
   const { id } = useParams();
-  const [plantDetails, setPlantDetails] = useState(null);
+  const [plantListings, setPlantListings] = useState([]);
 
   useEffect(() => {
-    const fetchPlantDetails = async () => {
+    const getData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/plants/${id}/`);
-        setPlantDetails(response.data);
+        const response = await axios.get(`http://localhost:8000/plant_listings/${id}/`);
+        console.log(response.data);
+        setPlantListings(response.data);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchPlantDetails();
+    getData();
   }, [id]);
 
-  if (!plantDetails) {
+  if (!plantListings) {
     return <h1>Loading...</h1>;
+  } else {
+    return (
+      <div>
+        <h2>{plantListings.name}</h2>
+        <p>Row Spacing: {plantListings.row_spacing}</p>
+        <p>Seed Depth: {plantListings.seed_depth}</p>
+        <p>Sunlight Needs: {plantListings.sunlight_needs}</p>
+        <p>Season: {plantListings.season}</p>
+        <p>Water Needs: {plantListings.water_needs}</p>
+        <p>Frost Tolerance: {plantListings.frost_tolerance}</p>
+        <p>Germination Time: {plantListings.germination_time}</p>
+        <p>Harvest Times: {plantListings.harvest_times}</p>
+        <p>Grow from Seed: {plantListings.grow_from_seed ? "Yes" : "No"}</p>
+        <p>Grow from Transplant: {plantListings.grow_from_transplant ? "Yes" : "No"}</p>
+        <p>Plant Needs Fertilization: {plantListings.plant_needs_fertilization ? "Yes" : "No"}</p>
+        <p>Date to Plant: {plantListings.date_to_plant}</p>
+      </div>
+    );
   }
-
-  return (
-    <div>
-      <h2>{plantDetails.name}</h2>
-      <p>Row Spacing: {plantDetails.row_spacing}</p>
-      <p>Seed Depth: {plantDetails.seed_depth}</p>
-      <p>Sunlight Needs: {plantDetails.sunlight_needs}</p>
-      <p>Season: {plantDetails.season}</p>
-      <p>Water Needs: {plantDetails.water_needs}</p>
-      <p>Frost Tolerance: {plantDetails.frost_tolerance}</p>
-      <p>Germination Time: {plantDetails.germination_time}</p>
-      <p>Harvest Times: {plantDetails.harvest_times}</p>
-      <p>Grow from Seed: {plantDetails.grow_from_seed ? "Yes" : "No"}</p>
-      <p>Grow from Transplant: {plantDetails.grow_from_transplant ? "Yes" : "No"}</p>
-      <p>Plant Needs Fertilization: {plantDetails.plant_needs_fertilization ? "Yes" : "No"}</p>
-      <p>Date to Plant: {plantDetails.date_to_plant}</p>
-    </div>
-  );
 }
