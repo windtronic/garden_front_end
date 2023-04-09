@@ -10,7 +10,7 @@ export default function PlantListings() {
     const getData = async () => {
       try {
         const response = await axios.get(`http://localhost:8000/plant_listings/${id}/`);
-        console.log(response.data);
+        console.log([response.data]);
         setPlantListings(response.data);
       } catch (error) {
         console.log(error);
