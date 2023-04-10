@@ -1,15 +1,15 @@
 import './App.css';
 import {Routes, Route} from 'react-router-dom'
-import { useState, } from "react";
+// import { useState, } from "react";
 import Header from './components/Header'
 import Main from './components/Main'
-import Calendar from './components/Calendar'
+// import Calendar from './components/Calendar'
 import Plants from './components/Plants'
 import PlantListings from './components/PlantListings'
-import CompanionPlanting from './components/CompanionPlanting'
-import Weather from './components/Weather'
+// import CompanionPlanting from './components/CompanionPlanting'
+// import Weather from './components/Weather'
 import GardenLayout from './components/GardenLayout'
-import Footer from './components/Footer'
+
 
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/plants" element={<Plants />} />
+            <Route path="/garden_layout" element={<GardenLayout />} />
             <Route path="/plants/:id" element={<PlantListings />} />
             <Route path="/plant_listings/:id" element={<PlantListings />} />
         </Routes>

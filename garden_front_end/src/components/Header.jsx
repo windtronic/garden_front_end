@@ -12,6 +12,9 @@ export default function Header() {
             
             <Link to="/plants" className="nav-link">
                 <h1 className="header-text">Plants</h1></Link>
+
+            <Link to="/garden_layout" className="nav-link">
+                <h1 className="header-text">Plants</h1></Link>
             
             
         </div>
@@ -19,4 +22,3 @@ export default function Header() {
     )
 
 }
-

@@ -30,4 +30,3 @@ export default function Plants() {
 }
 
 
-// setPlants(response.data.sort((a, b) => a.name.localeCompare(b.name)));

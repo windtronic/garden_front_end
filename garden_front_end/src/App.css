@@ -26,3 +26,15 @@
     font-size: clamp(40px, 13vw, 70px);
     color: #2c2c2c;
   }
+
+  .garden-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .garden-layout img {
+    max-width: 200px;
+    margin: 10px;
+  }
+  
