@@ -14,6 +14,7 @@ import GardenLayout from './components/GardenLayout'
 
 function App() {
 
+
   
 
   return (
@@ -34,9 +35,7 @@ function App() {
 
         </div>
       </main>
-      <footer>
-        <Footer />
-      </footer>
+    
     </div>
   );
 }

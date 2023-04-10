@@ -14,7 +14,7 @@ export default function Header() {
                 <h1 className="header-text">Plants</h1></Link>
 
             <Link to="/garden_layout" className="nav-link">
-                <h1 className="header-text">Plants</h1></Link>
+                <h1 className="header-text">Garden Layout</h1></Link>
             
             
         </div>
