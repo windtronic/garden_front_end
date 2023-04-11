@@ -9,6 +9,10 @@ export default function Header() {
             <Link to="/" className="nav-link">
                 <h1 className="header-text">My Gardening App</h1>
             </Link>
+
+            <Link to="/my_calendar" className="nav-link">
+                <h1 className="header-text">Calendar</h1>
+            </Link>
             
             <Link to="/plants" className="nav-link">
                 <h1 className="header-text">Plants</h1></Link>

@@ -5,27 +5,56 @@
     font-family: "Boogaloo";
   }
   
-  
-  /******************************************  PAGE  ****************************/
-  #header,
-  #navbar,
-  .pageContainer,
-  #footer {
-    margin: 0 auto;
-    max-width: 80vw;
-    min-width: 500px;
-    background-color: #e4673f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #header {
-    background-color: #6edcc4;
-    min-height: 90px;
-    font-size: clamp(40px, 13vw, 70px);
-    color: #2c2c2c;
-  }
+
+.header-container {
+  display: flex; /* add display flex to parent container */
+  justify-content: space-between; /* align child elements to opposite sides of parent container */
+  align-items: center; /* vertically center child elements within parent container */
+  padding: 20px;
+  background-color: rgb(79, 147, 190);
+}
+
+.nav-link {
+  margin: 0 10px; /* add horizontal margin between links */
+  text-decoration: none;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: darkgreen;
+}
+
+
+.plant-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  text-decoration: none;
+}
+
+.plant-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(31, 77, 31);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; 
+  transition: background-color 0.2s ease-in-out; 
+}
+
+.plant-button:hover {
+  background-color: rgb(36, 62, 102); /* change background color on hover */
+  color: white; /* change text color on hover */
+}
+
+
 
   .garden-layout {
     display: flex;
@@ -47,4 +76,5 @@
   }
   
 
+  
   

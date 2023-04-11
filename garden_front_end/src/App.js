@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 // import { useState, } from "react";
 import Header from './components/Header'
 import Main from './components/Main'
-// import Calendar from './components/Calendar'
+import MyCalendar from './components/MyCalendar'
 import Plants from './components/Plants'
 import PlantListings from './components/PlantListings'
 // import CompanionPlanting from './components/CompanionPlanting'
@@ -32,6 +32,7 @@ function App() {
             <Route path="/garden_layout" element={<GardenLayout />} />
             <Route path="/plants/:id" element={<PlantListings />} />
             <Route path="/plant_listings/:id" element={<PlantListings />} />
+            <Route path="/my_calendar" element={<MyCalendar />} />
         </Routes>
 
         </div>

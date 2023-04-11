@@ -21,7 +21,7 @@ export default function Plants() {
       <div className="plant-list">
         {plants.map((plant) => (
           <Link to={`/plant_listings/${plant.id}`} key={plant.id}>
-            <h2>{plant.name}</h2>
+          <button className="plant-button">{plant.name}</button>
           </Link>
         ))}
       </div>
