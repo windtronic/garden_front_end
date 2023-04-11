@@ -58,6 +58,7 @@ function GardenLayout() {
           key={plants[index].id}
           src={plants[index].image}
           alt={plants[index].name}
+          title={plants[index].name}
           {...bind(plants[index])}
           style={{ position: 'absolute',
            ...styles, cursor: 'grab', 
@@ -69,8 +70,6 @@ function GardenLayout() {
 }
 
 export default GardenLayout;
-
-
 
 
 
