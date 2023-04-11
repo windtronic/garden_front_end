@@ -3,29 +3,29 @@ import { useGesture } from '@use-gesture/react';
 import { useSprings, animated } from 'react-spring';
 
 
-  const plants = [
+const plants = [
   { id: 1, name: 'arugula', image: require('../images/arugula.png'), position: { x: 0, y: 0 } },
-  { id: 2, name: 'basil', image: require('../images/basil.png'), position: { x: 0, y: 0 } },
-  { id: 3, name: 'beet', image: require('../images/beet.png'), position: { x: 0, y: 0 } },
-  { id: 4, name: 'borage', image: require('../images/borage.png'), position: { x: 0, y: 0 } },
-  { id: 5, name: 'carrot', image: require('../images/carrot.png'), position: { x: 0, y: 0 } },
-  { id: 6, name: 'cilantro', image: require('../images/cilantro.png'), position: { x: 0, y: 0 } },
-  { id: 7, name: 'cucumber', image: require('../images/cucumber.png'), position: { x: 0, y: 0 } },
-  { id: 8, name: 'garlic', image: require('../images/garlic.png'), position: { x: 0, y: 0 } },
-  { id: 9, name: 'green bean', image: require('../images/green_bean.png'), position: { x: 0, y: 0 } },
-  { id: 10, name: 'green pepper', image: require('../images/green_pepper.png'), position: { x: 0, y: 0 } },
-  { id: 11, name: 'lettuce', image: require('../images/lettuce.png'), position: { x: 0, y: 0 } },
-  { id: 12, name: 'milkweed', image: require('../images/milkweed.png'), position: { x: 0, y: 0 } },
-  { id: 13, name: 'onion', image: require('../images/onion.png'), position: { x: 0, y: 0 } },
-  { id: 14, name: 'peas', image: require('../images/peas.png'), position: { x: 0, y: 0 } },
-  { id: 15, name: 'potato', image: require('../images/potato.png'), position: { x: 0, y: 0 } },
-  { id: 16, name: 'red pepper', image: require('../images/red_pepper.png'), position: { x: 0, y: 0 } },
-  { id: 17, name: 'salvia', image: require('../images/salvia.png'), position: { x: 0, y: 0 } },
-  { id: 18, name: 'spinach', image: require('../images/spinach.png'), position: { x: 0, y: 0 } },
-  { id: 19, name: 'summer squash', image: require('../images/summer_squash.png'), position: { x: 0, y: 0 } },
-  { id: 20, name: 'tomato', image: require('../images/tomato.png'), position: { x: 0, y: 0 } },
-  { id: 21, name:  'winter_squash', image: require('../images/winter_squash.png'), position: {x: 0, y: 0} },
-  { id: 22, name:  'yarrow', image: require('../images/yarrow.png'), position: {x: 0, y: 0} }
+  { id: 2, name: 'basil', image: require('../images/basil.png'), position: { x: 1, y: 0 } },
+  { id: 3, name: 'beet', image: require('../images/beet.png'), position: { x: 2, y: 0 } },
+  { id: 4, name: 'borage', image: require('../images/borage.png'), position: { x: 3, y: 0 } },
+  { id: 5, name: 'carrot', image: require('../images/carrot.png'), position: { x: 0, y: 1 } },
+  { id: 6, name: 'cilantro', image: require('../images/cilantro.png'), position: { x: 1, y: 1 } },
+  { id: 7, name: 'cucumber', image: require('../images/cucumber.png'), position: { x: 2, y: 1 } },
+  { id: 8, name: 'garlic', image: require('../images/garlic.png'), position: { x: 3, y: 1 } },
+  { id: 9, name: 'green bean', image: require('../images/green_bean.png'), position: { x: 0, y: 2 } },
+  { id: 10, name: 'green pepper', image: require('../images/green_pepper.png'), position: { x: 1, y: 2 } },
+  { id: 11, name: 'lettuce', image: require('../images/lettuce.png'), position: { x: 2, y: 2 } },
+  { id: 12, name: 'milkweed', image: require('../images/milkweed.png'), position: { x: 3, y: 2 } },
+  { id: 13, name: 'onion', image: require('../images/onion.png'), position: { x: 0, y: 3 } },
+  { id: 14, name: 'peas', image: require('../images/peas.png'), position: { x: 1, y: 3 } },
+  { id: 15, name: 'potato', image: require('../images/potato.png'), position: { x: 2, y: 3 } },
+  { id: 16, name: 'red pepper', image: require('../images/red_pepper.png'), position: { x: 3, y: 3 } },
+  { id: 17, name: 'salvia', image: require('../images/salvia.png'), position: { x: 0, y: 4 } },
+  { id: 18, name: 'spinach', image: require('../images/spinach.png'), position: { x: 1, y: 4 } },
+  { id: 19, name: 'summer squash', image: require('../images/summer_squash.png'), position: { x: 2, y: 4 } },
+  { id: 20, name: 'tomato', image: require('../images/tomato.png'), position: { x: 3, y: 4 } },
+  { id: 21, name:  'winter_squash', image: require('../images/winter_squash.png'), position: {x: 0, y: 5} },
+  { id: 22, name:  'yarrow', image: require('../images/yarrow.png'), position: {x: 1, y: 5} }
 
 ];
 
