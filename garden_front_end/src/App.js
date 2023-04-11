@@ -32,7 +32,8 @@ function App() {
             <Route path="/garden_layout" element={<GardenLayout />} />
             <Route path="/plants/:id" element={<PlantListings />} />
             <Route path="/plant_listings/:id" element={<PlantListings />} />
-            <Route path="/my_calendar" element={<MyCalendar />} />
+            <Route path="/my_calendar" element={<MyCalendar initialEvents={{events: []}} />} />
+
         </Routes>
 
         </div>
