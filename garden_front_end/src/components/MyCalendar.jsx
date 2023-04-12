@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+// import 'react-big-calendar/lib/sass/styles'
 import { Popover, TextField, Button } from "@material-ui/core";
 
 export default function MyCalendar({ initialEvents }) {
@@ -58,6 +59,7 @@ export default function MyCalendar({ initialEvents }) {
         onSelectEvent={handleSelectEvent}
         onSelectSlot={handleSelectSlot}
         style={{ height: "70vh" }}
+        className="my-calendar"
       />
       {selectedEvent && (
         <Popover

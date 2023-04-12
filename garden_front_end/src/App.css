@@ -1,3 +1,8 @@
+/* @import './styles.scss'; */
+
+
+
+
 .App {
     background-color: #f5f5f5;
     font-style: bold;
@@ -82,7 +87,7 @@ div.rbc-calendar {
 }
 
 div.rbc-toolbar button {
-  background-color: #4caf50;
+  background-color: #219b7c;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -94,7 +99,7 @@ div.rbc-toolbar button {
 }
 
 div.rbc-toolbar button:hover {
-  background-color: #3e8e41;
+  background-color: #36bcb1;
 }
 
 div.rbc-event {
@@ -118,4 +123,6 @@ div.rbc-off-range {
   opacity: 0.5;
 }
 
- 
+div.rbc-today {
+  background-color: rgb(114, 204, 169) !important;
+}
