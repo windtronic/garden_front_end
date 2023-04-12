@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useGesture } from '@use-gesture/react';
 import { useSprings, animated } from 'react-spring';
 
@@ -34,6 +34,9 @@ function GardenLayout() {
     plants.reduce((acc, plant) => ({ ...acc, [plant.name]: plant.position }), {})
   );
 
+
+
+
   const bind = useGesture({
     onDrag: ({ down, movement: [x, y], event, args: [plant] }) => {
       event.preventDefault();
@@ -44,12 +47,13 @@ function GardenLayout() {
     },
   });
 
-  const springs = useSprings(
-    plants.length,
-    plants.map((plant) => ({
-      to: { transform: `translate3d(${positions[plant.name].x}px, ${positions[plant.name].y}px, 0)` },
-    }))
-  );
+const springs = useSprings(
+  plants.length,
+  plants.map((plant) => ({
+    to: { transform: `translate3d(${plant.position.x * 100}px, ${plant.position.y * 100}px, 0)` },
+  }))
+);
+
 
   return (
     <div className="garden-layout">
