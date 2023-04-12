@@ -65,6 +65,8 @@
 .garden-layout {
   display: grid;
   margin-left: 20px;
+  margin-top:10px;
+  margin-bottom: 20px;
   position: relative;
   touch-action: none;
 }
