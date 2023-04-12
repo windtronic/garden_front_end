@@ -64,8 +64,8 @@
 
   
 .garden-layout img {
-  width: 3.75em; 
-  height: 3.75em; 
+  width: 3.75em;
+  height: 3.75em;
 }
 
 .garden-layout {
@@ -76,6 +76,7 @@
   margin: 20px;
   position: relative;
   justify-content: end;
+  touch-action: none;
 }
 
   
