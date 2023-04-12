@@ -27,7 +27,7 @@ function GardenLayout() {
     { id: 18, name: 'spinach', image: require('../images/spinach.png'), position: { x: 100, y: 400 } },
     { id: 19, name: 'summer squash', image: require('../images/summer_squash.png'), position: { x: 200, y: 400 } },
     { id: 20, name: 'tomato', image: require('../images/tomato.png'), position: { x: 300, y: 400 } },
-    { id: 21, name:  'winter_squash', image: require('../images/winter_squash.png'), position: {x: 0, y: 500} },
+    { id: 21, name:  'winter squash', image: require('../images/winter_squash.png'), position: {x: 0, y: 500} },
     { id: 22, name:  'yarrow', image: require('../images/yarrow.png'), position: {x: 100, y: 500} }
   ];  
 
