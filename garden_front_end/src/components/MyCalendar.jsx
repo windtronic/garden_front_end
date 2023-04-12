@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-// import 'react-big-calendar/lib/sass/styles'
 import { Popover, TextField, Button } from "@material-ui/core";
 
 export default function MyCalendar({ initialEvents }) {
-  const [eventsData, setEventsData] = useState(initialEvents.events);
+  const [eventsData, setEventsData] = useState(
+    JSON.parse(localStorage.getItem("eventsData")) || initialEvents.events
+  );
   const [selectedEvent, setSelectedEvent] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem("eventsData", JSON.stringify(eventsData));
+  }, [eventsData]);
 
   const handleSelectEvent = (event) => setSelectedEvent(event);
 
@@ -24,6 +29,7 @@ export default function MyCalendar({ initialEvents }) {
       return event;
     });
     setEventsData(updatedEvents);
+    console.log("Updated events:", updatedEvents);
     handlePopoverClose();
   };
 
@@ -52,7 +58,7 @@ export default function MyCalendar({ initialEvents }) {
       <Calendar
         localizer={momentLocalizer(moment)}
         events={eventsData}
-        views={['month']}
+        views={["month"]}
         startAccessor="start"
         endAccessor="end"
         selectable
@@ -83,16 +89,21 @@ export default function MyCalendar({ initialEvents }) {
                 fullWidth
                 margin="normal"
                 name="title"
+                defaultValue={selectedEvent?.title}
               />
+
               <Button
                 variant="contained"
                 color="primary"
-                onClick={(e) =>
+                onClick={() => {
+                  handlePopoverClose();
+                  const title =
+                    document.querySelector("form").elements.title.value;
                   handleEventEdit({
                     ...selectedEvent,
-                    title: e.target.title.value,
-                  })
-                }
+                    title: title,
+                  });
+                }}
                 className="edit-button"
               >
                 Edit Event
@@ -116,5 +127,3 @@ export default function MyCalendar({ initialEvents }) {
     </div>
   );
 }
-
-
