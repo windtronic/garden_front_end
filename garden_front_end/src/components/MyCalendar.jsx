@@ -64,7 +64,7 @@ export default function MyCalendar({ initialEvents }) {
         selectable
         onSelectEvent={handleSelectEvent}
         onSelectSlot={handleSelectSlot}
-        style={{ height: "70vh" }}
+        style={{ height: "100vh" }}
         className="my-calendar"
       />
       {selectedEvent && (
