@@ -28,31 +28,44 @@
   color: darkgreen;
 }
 
+/* Styles for Plants component */
+
+
 
 .plant-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 10fr));
+  gap: 30px;
   text-decoration: none;
+  background-color: rgb(49, 61, 60);
+}
+
+.plant-name {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .plant-button {
   display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: rgb(31, 77, 31);
-  color: white;
+  width: 75%;
+  padding: 20px;
+  margin: 10px;
+  margin-top: 15px;
+  background-color: rgb(26, 123, 125);
+  color: rgb(171, 188, 180);
   border: none;
-  border-radius: 5px;
+  border-radius: 100px;
   cursor: pointer;
   text-decoration: none; 
   transition: background-color 0.2s ease-in-out; 
+  border-bottom: none;
 }
 
 .plant-button:hover {
   background-color: rgb(36, 62, 102); 
   color: white; 
 }
+
 
 
 /* Styles for GardenLayout component */
@@ -175,9 +188,11 @@ div.rbc-today {
   display: table-cell;
   border: 1px solid #b3bdc0;
   padding: 10px;
+  text-align: center;
 }
 
 .cell p:first-child {
   font-weight: bold;
   margin-bottom: 5px;
+  text-align: center;
 }

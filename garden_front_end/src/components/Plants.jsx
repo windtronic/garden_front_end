@@ -17,15 +17,17 @@ export default function Plants() {
   if (!plants) {
     return <h1>Loading, please wait...</h1>;
   } else {
-    return (
-      <div className="plant-list">
-        {plants.map((plant) => (
-          <Link to={`/plant_listings/${plant.id}`} key={plant.id}>
-          <button className="plant-button">{plant.name}</button>
-          </Link>
-        ))}
-      </div>
-    );
+   return (
+  <div className="plant-list">
+    {plants.map((plant) => (
+      <Link to={`/plant_listings/${plant.id}`} key={plant.id} className="plant-link">
+        <button className="plant-button">
+          <span className="plant-name">{plant.name}</span>
+        </button>
+      </Link>
+    ))}
+  </div>
+);
   }
 }
 
