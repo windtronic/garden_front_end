@@ -59,9 +59,6 @@ function GardenLayout() {
   });
 
 
-
-
-
   const springs = useSprings(
     plants.length,
     plants.map((plant) => ({
@@ -135,7 +132,6 @@ export default GardenLayout;
 
 
 
- 
 
 
 

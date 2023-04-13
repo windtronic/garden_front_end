@@ -9,6 +9,7 @@ import PlantListings from './components/PlantListings'
 // import CompanionPlanting from './components/CompanionPlanting'
 // import Weather from './components/Weather'
 import GardenLayout from './components/GardenLayout'
+import Login from './components/Login'
 
 
 
@@ -33,6 +34,7 @@ function App() {
             <Route path="/plants/:id" element={<PlantListings />} />
             <Route path="/plant_listings/:id" element={<PlantListings />} />
             <Route path="/my_calendar" element={<MyCalendar initialEvents={{events: []}} />} />
+            <Route path="/login" element={<Login />} />
 
         </Routes>
 
@@ -44,5 +46,6 @@ function App() {
 }
 
 export default App;
+
 
 
