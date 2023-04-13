@@ -20,12 +20,12 @@ function Register() {
     })
     .then(response => {
       console.log(response);
-      // Clear form inputs
+     
       setName('');
       setAddress('');
       setEmail('');
       setPassword('');
-      // Navigate to Login page
+      
       navigate('/login');
     })
     .catch(error => {
