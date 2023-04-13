@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useGesture } from '@use-gesture/react';
 import { useSprings, animated } from 'react-spring';
-
+import { Link } from 'react-router-dom'
 
 
 function GardenLayout() {
@@ -117,7 +117,12 @@ return (
       
     </div>
   </div>
+  <div>
+     <Link to="/companion_planting" className="companion-link">
+                <h3 className="header-text">Companion Planting Guide</h3></Link>
   </div>
+  </div>
+  
 );
 
       }

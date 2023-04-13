@@ -29,7 +29,7 @@ export default function MyCalendar({ initialEvents }) {
       return event;
     });
     setEventsData(updatedEvents);
-    console.log("Updated events:", updatedEvents);
+    console.log("updated events:", updatedEvents);
     handlePopoverClose();
   };
 
