@@ -207,7 +207,7 @@ div.rbc-off-range {
 }
 
 div.rbc-today {
-  background-color: rgb(114, 204, 169) !important;
+  background-color: rgb(114, 204, 169);
 }
 
 /* Styles for CompanionPlanting component */
