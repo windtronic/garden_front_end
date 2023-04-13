@@ -241,3 +241,84 @@ div.rbc-today {
 .cell:last-child {
   border-right: none;
 }
+
+
+
+/* Styles for Login component */
+
+
+.login-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.login-card label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.login-card input[type="text"],
+.login-card input[type="password"] {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.login-card button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+
+/* Styles for Register component */
+
+
+.register-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.register-card label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.register-card input[type="text"],
+.register-card input[type="email"],
+.register-card input[type="password"] {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.register-card button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.register-card .error {
+  color: red;
+  margin-bottom: 10px;
+}

@@ -10,7 +10,7 @@ function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (email == 'fake@email.com' && password == 'fake123') {
+    if (email === 'fake@email.com' && password === 'fake123') {
       navigate('/');
     } else {
       setError('Invalid email or password.');
@@ -18,20 +18,20 @@ function Login() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Email:
-        <input type="text" value={email} onChange={event => setEmail(event.target.value)} />
-      </label>
-      <br />
-      <label>
-        Password:
-        <input type="password" value={password} onChange={event => setPassword(event.target.value)} />
-      </label>
-      <br />
-       {error && <div>{error}</div>}
-      <button type="submit">Login</button>
-    </form>
+    <div className="login-card">
+      <form onSubmit={handleSubmit}>
+        <label>
+          Email:
+          <input type="text" value={email} onChange={event => setEmail(event.target.value)} />
+        </label>
+        <label>
+          Password:
+          <input type="password" value={password} onChange={event => setPassword(event.target.value)} />
+        </label>
+        {error && <div style={{ color: 'red' }}>{error}</div>}
+        <button type="submit">Login</button>
+      </form>
+    </div>
   );
 }
 
