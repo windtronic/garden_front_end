@@ -195,7 +195,7 @@ div.rbc-event {
   padding: 5px;
   margin-bottom: 5px;
   background-color: #f0f0f0;
-  color: #333;
+  color: #504e4e;
   font-size: 14px;
 }
 
@@ -222,22 +222,27 @@ div.rbc-today {
   display: table;
   border-collapse: collapse;
   width: 100%;
-  background-color: #59be93;
+  background-color: #353039;
 }
 
 .row {
-  display: table-row;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 80px;
+  background-color: #77a4bc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(219, 222, 222, 0.2);
 }
 
 .cell {
-  display: table-cell;
-  border: 1px solid #b3bdc0;
-  padding: 10px;
+  flex-basis: 60%;
+  padding:2px;
   text-align: center;
+  font-size: 25px;
+  color: #4b2c2c;
 }
 
-.cell p:first-child {
-  font-weight: bold;
-  margin-bottom: 5px;
-  text-align: center;
+.cell:last-child {
+  border-right: none;
 }
