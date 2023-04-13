@@ -1,67 +1,68 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
-  const [users, setUsers] = useState([]);
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-
-    useEffect(() => {
-    const getUsers = async () => {
-      const response = await axios.get(`http://localhost:8000/users/`);
-      console.log(response.data)
-      setUsers(response.data);
-    };
-    getUsers();
-  }, []);
-
-  const handleSubmit = (event) => {
+  function handleSubmit(event) {
     event.preventDefault();
-    const user = { name, address, email, password };
-    axios.post('http://localhost:8000/users/', user)
-      .then(response => {
-        setUsers([...users, response.data]);
-        setName('');
-        setAddress('');
-        setEmail('');
-        setPassword('');
-      })
-      .catch(error => console.log(error));
-  };
+    axios.post('http://localhost:8000/users/', {
+      name: name,
+      address: address,
+      email: email,
+      password: password,
+    })
+    .then(response => {
+      console.log(response);
+      // Clear form inputs
+      setName('');
+      setAddress('');
+      setEmail('');
+      setPassword('');
+      // Navigate to Login page
+      navigate('/login');
+    })
+    .catch(error => {
+      console.error(error);
+      setError('An error occurred while trying to register.');
+    });
+  }
 
   return (
-    <div>
-      <h1>Login</h1>
-      <ul>
-        {users.map(user => (
-          <li key={user.id}>{user.name}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
-        </label>
-        <label>
-          Address:
-          <input type="text" value={address} onChange={(event) => setAddress(event.target.value)} />
-        </label>
-        <label>
-          Email:
-          <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
-        </label>
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" value={name} onChange={event => setName(event.target.value)} />
+      </label>
+      <br />
+      <label>
+        Address:
+        <input type="text" value={address} onChange={event => setAddress(event.target.value)} />
+      </label>
+      <br />
+      <label>
+        Email:
+        <input type="email" value={email} onChange={event => setEmail(event.target.value)} />
+      </label>
+      <br />
+      <label>
+        Password:
+        <input type="password" value={password} onChange={event => setPassword(event.target.value)} />
+      </label>
+      <br />
+      {error && <div>{error}</div>}
+      <button type="submit">Register</button>
+    </form>
   );
 }
 
 export default Register;
+
+
 
