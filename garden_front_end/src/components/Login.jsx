@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -11,23 +10,11 @@ function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios.post('http://localhost:8000/login/', {
-      email: email,
-      password: password
-    })
-    .then(response => response.data)
-    .then(data => {
-         console.log(data);
-      if (data.success) {
-        navigate('/main');
-      } else {
-        setError('Invalid email or password.');
-      }
-    })
-    .catch(error => {
-            console.log(error);
-      setError('An error occurred while trying to log in.');
-    });
+    if (email == 'fake@email.com' && password == 'fake123') {
+      navigate('/');
+    } else {
+      setError('Invalid email or password.');
+    }
   }
 
   return (
