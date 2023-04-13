@@ -22,22 +22,25 @@ export default function PlantListings() {
   if (!plantListings) {
     return <h1>Loading...</h1>;
   } else {
-    return (
-      <div>
-        <h2>{plantListings.name}</h2>
-        <p>Row Spacing: {plantListings.row_spacing}</p>
-        <p>Seed Depth: {plantListings.seed_depth}</p>
-        <p>Sunlight Needs: {plantListings.sunlight_needs}</p>
-        <p>Season: {plantListings.season}</p>
-        <p>Water Needs: {plantListings.water_needs}</p>
-        <p>Frost Tolerance: {plantListings.frost_tolerance}</p>
-        <p>Germination Time: {plantListings.germination_time}</p>
-        <p>Harvest Times: {plantListings.harvest_times}</p>
-        <p>Grow from Seed: {plantListings.grow_from_seed ? "Yes" : "No"}</p>
-        <p>Grow from Transplant: {plantListings.grow_from_transplant ? "Yes" : "No"}</p>
-        <p>Plant Needs Fertilization: {plantListings.plant_needs_fertilization ? "Yes" : "No"}</p>
-        <p>Date to Plant: {plantListings.date_to_plant}</p>
-      </div>
-    );
+  return (
+  <div className="plant-listing-page">
+    <div className="plant-info-box">
+      <h2>{plantListings.name}</h2>
+      <p>Row Spacing: {plantListings.row_spacing}</p>
+      <p>Seed Depth: {plantListings.seed_depth}</p>
+      <p>Sunlight Needs: {plantListings.sunlight_needs}</p>
+      <p>Season: {plantListings.season}</p>
+      <p>Water Needs: {plantListings.water_needs}</p>
+      <p>Frost Tolerance: {plantListings.frost_tolerance}</p>
+      <p>Germination Time: {plantListings.germination_time}</p>
+      <p>Harvest Times: {plantListings.harvest_times}</p>
+      <p>Grow from Seed: {plantListings.grow_from_seed ? "Yes" : "No"}</p>
+      <p>Grow from Transplant: {plantListings.grow_from_transplant ? "Yes" : "No"}</p>
+      <p>Plant Needs Fertilization: {plantListings.plant_needs_fertilization ? "Yes" : "No"}</p>
+      <p>Date to Plant: {plantListings.date_to_plant}</p>
+    </div>
+  </div>
+);
+    
   }
 }

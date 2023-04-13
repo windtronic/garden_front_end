@@ -66,6 +66,51 @@
   color: white; 
 }
 
+/* Styles for PlantListing component */
+
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+.plant-listing-page {
+  background-color: #674e73;
+}
+
+.plant-info-box {
+  background-color: rgb(165, 176, 198);
+  border: 2px solid #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Patrick Hand';
+  
+}
+
+.plant-info-box h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.plant-info-box p {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Styles for GardenLayout component */
