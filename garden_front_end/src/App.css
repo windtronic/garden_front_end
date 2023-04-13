@@ -31,7 +31,6 @@
 /* Styles for Plants component */
 
 
-
 .plant-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 10fr));
@@ -99,17 +98,6 @@
   font-size: 24px;
   margin-bottom: 12px;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
