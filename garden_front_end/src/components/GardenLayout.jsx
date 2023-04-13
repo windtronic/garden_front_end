@@ -71,6 +71,7 @@ function GardenLayout() {
 
 return (
   <div>
+    <div className="page-background">
     <div className="garden-layout">
       {springs.map((styles, index) => (
         <animated.img
@@ -122,7 +123,7 @@ return (
                 <h3 className="header-text">Companion Planting Guide</h3></Link>
   </div>
   </div>
-  
+  </div>
 );
 
       }

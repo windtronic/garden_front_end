@@ -118,12 +118,13 @@
 .garden-layout img {
   width: 4.5em;
   height:4.5em;
+  margin-right: 10px;
+  margin-top: 10px;
 }
 
 .garden-layout {
   display: grid;
   margin-left: 20px;
-  margin-top:10px;
   margin-bottom: 20px;
   position: relative;
   touch-action: none;
@@ -154,6 +155,12 @@
   border: 5px solid rgb(103, 116, 185);
   border-radius: 5px;
   
+}
+
+.page-background {
+  background-color: rgb(226, 226, 237);
+  height: 100vh;
+  margin-top: none;
 }
 
 
