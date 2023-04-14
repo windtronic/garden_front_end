@@ -24,16 +24,11 @@ export default function PlantListings() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const localData = localStorage.getItem("plantListings");
-        if (localData) {
-          setPlantListings(JSON.parse(localData));
-        } else {
-          const response = await axios.get(
-            `http://localhost:8000/plant_listings/${id}/`
-          );
-          console.log([response.data]);
-          setPlantListings(response.data);
-        }
+        const response = await axios.get(
+          `http://localhost:8000/plant_listings/${id}/`
+        );
+        console.log([response.data]);
+        setPlantListings(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -44,12 +39,6 @@ export default function PlantListings() {
   const handleNewPlantListingSubmit = async (event) => {
     event.preventDefault();
     await axios.post(`http://localhost:8000/plant_listings/`, newPlantListing);
-    const updatedPlantListings = [...plantListings, newPlantListing];
-    setPlantListings(updatedPlantListings);
-    localStorage.setItem(
-      "plantListings",
-      JSON.stringify(updatedPlantListings)
-    );
     setNewPlantListing({
       name: "",
       row_spacing: "",
@@ -77,10 +66,6 @@ export default function PlantListings() {
       }
     });
   };
-
-  useEffect(() => {
-    localStorage.setItem("plantListings", JSON.stringify(plantListings));
-  }, [plantListings]);
 
   if (!plantListings) {
     return <h1>Loading...</h1>;
