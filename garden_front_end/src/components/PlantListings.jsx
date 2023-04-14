@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 
 export default function PlantListings() {
   const { id } = useParams();
-  const [plantListings, setPlantListings] = useState([]);
+  const [plantListings, setPlantListings] = useState(null);
+   const [plant, setPlant] = useState(null);
   const [newPlantListing, setNewPlantListing] = useState({
     plant: id,
     name: "",
@@ -22,25 +23,26 @@ export default function PlantListings() {
     date_to_plant: "",
   });
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:8000/plant_listings/?plant=${id}`
-        );
-        console.log([response.data]);
-        setPlantListings(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, [id]);
+useEffect(() => {
+  const getData = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8000/plant_listings/?plant=${id}`);
+      setPlantListings(response.data.filter(listing => listing.plant === Number(id)));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  getData();
+}, [id]);
 
- const handleNewPlantListingSubmit = async (event) => {
-  event.preventDefault();
-  await axios.post(`http://localhost:8000/plant_listings/`, {...newPlantListing,plant: id});
-  setNewPlantListing({
+
+  const handleNewPlantListingSubmit = async (event) => {
+    event.preventDefault();
+    await axios.post(`http://localhost:8000/plant_listings/`, {
+      ...newPlantListing,
+      plant: id,
+    });
+    setNewPlantListing({
       plant: id,
       name: "",
       row_spacing: "",
@@ -69,64 +71,62 @@ export default function PlantListings() {
     });
   };
 
-  if (!plantListings.length) {
+  if (!plantListings) {
     return <h1>Loading...</h1>;
   } else {
-    const plantListing = plantListings.find((listing) => listing.plant === Number(id));
-    if (!plantListing) {
-      return <h1>No plant listing found for this plant</h1>;
-    }
-    return (
-      <div className="plant-listing-page">
-        <div className="plant-info-box">
-          <h2>{plantListing.name}</h2>
-          <p>Row Spacing: {plantListing.row_spacing}</p>
-          <p>Seed Depth: {plantListing.seed_depth}</p>
-          <p>Sunlight Needs: {plantListing.sunlight_needs}</p>
-          <p>Season: {plantListing.season}</p>
-          <p>Water Needs: {plantListing.water_needs}</p>
-          <p>Frost Tolerance: {plantListing.frost_tolerance}</p>
-          <p>Germination Time: {plantListing.germination_time}</p>
-          <p>Harvest Times: {plantListing.harvest_times}</p>
+return (
+  <div className="plant-listing-page">
+    {plantListings.length > 0 && (
+      <div key={plantListings[0].id} className="plant-info-box">
+        <h2>{plantListings[0].name}</h2>
+        <p>Row Spacing: {plantListings[0].row_spacing}</p>
+        <p>Seed Depth: {plantListings[0].seed_depth}</p>
+        <p>Sunlight Needs: {plantListings[0].sunlight_needs}</p>
+        <p>Season: {plantListings[0].season}</p>
+        <p>Water Needs: {plantListings[0].water_needs}</p>
+        <p>Frost Tolerance: {plantListings[0].frost_tolerance}</p>
+        <p>Germination Time: {plantListings[0].germination_time}</p>
+        <p>Harvest Times: {plantListings[0].harvest_times}</p>
 
-          <p>
-            {" "}
-            Grow from Transplant:
-            <select
-              value={newPlantListing.grow_from_transplant}
-              onChange={handleNewPlantListingChange}
-              name="grow_from_transplant"
-            >
-              <option value={true}>Yes</option>
-              <option value={false}>No</option>
-            </select>
-          </p>
-          <p>
-            Grow from Seed:
-            <select
-              value={newPlantListing.grow_from_seed}
-              onChange={handleNewPlantListingChange}
-              name="grow_from_seed"
-            >
-              <option value={true}>Yes</option>
-              <option value={false}>No</option>
-            </select>
-          </p>
+        <p>
+          {" "}
+          Grow from Transplant:
+          <select
+            value={newPlantListing.grow_from_transplant}
+            onChange={handleNewPlantListingChange}
+            name="grow_from_transplant"
+          >
+            <option value={true}>Yes</option>
+            <option value={false}>No</option>
+          </select>
+        </p>
+        <p>
+          Grow from Seed:
+          <select
+            value={newPlantListing.grow_from_seed}
+            onChange={handleNewPlantListingChange}
+            name="grow_from_seed"
+          >
+            <option value={true}>Yes</option>
+            <option value={false}>No</option>
+          </select>
+        </p>
 
-          <p>
-            Plant Needs Fertilization:
-            <select
-              value={newPlantListing.plant_needs_fertilization}
-              onChange={handleNewPlantListingChange}
-              name="plant_needs_fertilization"
-            >
-              <option value={true}>Yes</option>
-              <option value={false}>No</option>
-            </select>
-          </p>
+        <p>
+          Plant Needs Fertilization:
+          <select
+            value={newPlantListing.plant_needs_fertilization}
+            onChange={handleNewPlantListingChange}
+            name="plant_needs_fertilization"
+          >
+            <option value={true}>Yes</option>
+            <option value={false}>No</option>
+          </select>
+        </p>
 
-          <p>Date to Plant: {plantListing.date_to_plant}</p>
-        </div>
+        <p>Date to Plant: {plantListings[0].date_to_plant}</p>
+      </div>
+ )}
         <div className="create-plant-listing-box">
           <form onSubmit={handleNewPlantListingSubmit}>
             <input
@@ -169,28 +169,28 @@ export default function PlantListings() {
               value={newPlantListing.water_needs}
               onChange={handleNewPlantListingChange}
               name="water_needs"
-              placeholder="Water needs"
+              placeholder="Water Needs"
             />
             <input
               type="text"
               value={newPlantListing.frost_tolerance}
               onChange={handleNewPlantListingChange}
               name="frost_tolerance"
-              placeholder="Frost tolerance"
+              placeholder="Frost Tolerance"
             />
             <input
               type="text"
               value={newPlantListing.germination_time}
               onChange={handleNewPlantListingChange}
               name="germination_time"
-              placeholder="Germination time"
+              placeholder="Germination Time"
             />
             <input
               type="text"
               value={newPlantListing.harvest_times}
               onChange={handleNewPlantListingChange}
               name="harvest_times"
-              placeholder="Harvest times"
+              placeholder="Harvest Times"
             />
             <input
               type="text"
@@ -199,6 +199,7 @@ export default function PlantListings() {
               name="date_to_plant"
               placeholder="Date to Plant"
             />
+
             <button type="submit">Create New Plant Listing</button>
           </form>
         </div>
@@ -206,3 +207,5 @@ export default function PlantListings() {
     );
   }
 }
+  
+
