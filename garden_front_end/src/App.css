@@ -99,6 +99,25 @@
   margin-bottom: 12px;
 }
 
+.create-plant-listing-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 24px;
+}
+
+.create-plant-listing-box form {
+  width: 100%;
+  max-width: 400px;
+}
+
+.create-plant-listing-box input,
+.create-plant-listing-box select,
+.create-plant-listing-box button {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
 
 
 /* Styles for GardenLayout component */
