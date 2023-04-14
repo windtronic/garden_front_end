@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function PlantListings() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [plantListings, setPlantListings] = useState(null);
   const [plant, setPlant] = useState(null);
@@ -61,6 +62,7 @@ export default function PlantListings() {
       plant_needs_fertilization: false,
       date_to_plant: "",
     });
+    navigate("/plants");
   };
 
   const handleNewPlantListingChange = (event) => {
@@ -203,12 +205,12 @@ export default function PlantListings() {
               <option value={true}>Yes</option>
               <option value={false}>No</option>
             </select>
-            <button type="submit">Create New Plant Listing</button>
+            <button onClick={handleNewPlantListingSubmit}>
+              Create New Plant Listing
+            </button>
           </form>
         </div>
       </div>
     );
   }
 }
-  
-
