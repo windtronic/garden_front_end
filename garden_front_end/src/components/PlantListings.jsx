@@ -69,21 +69,25 @@ export default function PlantListings() {
     });
   };
 
-  if (!plantListings) {
+  if (!plantListings.length) {
     return <h1>Loading...</h1>;
   } else {
+    const plantListing = plantListings.find((listing) => listing.plant === Number(id));
+    if (!plantListing) {
+      return <h1>No plant listing found for this plant</h1>;
+    }
     return (
       <div className="plant-listing-page">
         <div className="plant-info-box">
-          <h2>{plantListings.name}</h2>
-          <p>Row Spacing: {plantListings.row_spacing}</p>
-          <p>Seed Depth: {plantListings.seed_depth}</p>
-          <p>Sunlight Needs: {plantListings.sunlight_needs}</p>
-          <p>Season: {plantListings.season}</p>
-          <p>Water Needs: {plantListings.water_needs}</p>
-          <p>Frost Tolerance: {plantListings.frost_tolerance}</p>
-          <p>Germination Time: {plantListings.germination_time}</p>
-          <p>Harvest Times: {plantListings.harvest_times}</p>
+          <h2>{plantListing.name}</h2>
+          <p>Row Spacing: {plantListing.row_spacing}</p>
+          <p>Seed Depth: {plantListing.seed_depth}</p>
+          <p>Sunlight Needs: {plantListing.sunlight_needs}</p>
+          <p>Season: {plantListing.season}</p>
+          <p>Water Needs: {plantListing.water_needs}</p>
+          <p>Frost Tolerance: {plantListing.frost_tolerance}</p>
+          <p>Germination Time: {plantListing.germination_time}</p>
+          <p>Harvest Times: {plantListing.harvest_times}</p>
 
           <p>
             {" "}
@@ -121,7 +125,7 @@ export default function PlantListings() {
             </select>
           </p>
 
-          <p>Date to Plant: {plantListings.date_to_plant}</p>
+          <p>Date to Plant: {plantListing.date_to_plant}</p>
         </div>
         <div className="create-plant-listing-box">
           <form onSubmit={handleNewPlantListingSubmit}>
