@@ -31,39 +31,68 @@
 /* Styles for Plants component */
 
 
+.plant-card {
+  background-color: rgb(165, 176, 198);
+  border: 2px solid #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Patrick Hand';
+}
+
+.plant-card h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.plant-card p {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.plant-card .plant-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.plant-card .plant-buttons button {
+  margin: 10px;
+}
+
 .plant-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 10fr));
   gap: 30px;
   text-decoration: none;
-  /* background-color: rgb(49, 61, 60); */
-}
-
-.plant-name {
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 .plant-button {
   display: block;
-  width: 75%;
-  padding: 20px;
-  margin: 10px;
-  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
   background-color: rgb(26, 123, 125);
   color: rgb(171, 188, 180);
   border: none;
-  border-radius: 100px;
+  border-radius: 10px;
   cursor: pointer;
-  text-decoration: none; 
-  transition: background-color 0.2s ease-in-out; 
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
   border-bottom: none;
 }
 
 .plant-button:hover {
-  background-color: rgb(36, 62, 102); 
-  color: white; 
+  background-color: rgb(36, 62, 102);
+  color: white;
 }
+
 
 /* Styles for PlantListing component */
 

@@ -45,7 +45,7 @@ export default function Plants() {
     await getPlants();
   };
 
-return (
+  return (
     <div className="plant-list">
       <form onSubmit={handleCreate}>
         <input
@@ -54,31 +54,57 @@ return (
           onChange={(event) => setNewPlantName(event.target.value)}
           placeholder="Plant name"
         />
-        <button type="submit">Create Plant</button>
+        <button className="plant-button" type="submit">
+          Create Plant
+        </button>
       </form>
       {plants.map((plant) => (
         <div key={plant.id} className="plant-card">
-          <Link to={`/plant_listings/${plant.id}`} className="plant-link">
-            <h2>{plant.name}</h2>
-          </Link>
-          <p>{plant.description}</p>
-          <button onClick={() => handleDelete(plant.id)}>Delete</button>
-          <button onClick={() => setEditingPlantId(plant.id)}>Edit</button>
+          <div className="plant-card-content">
+            <Link to={`/plant_listings/${plant.id}`} className="plant-link">
+              <h2 className="plant-name">{plant.name}</h2>
+            </Link>
+            <p>{plant.description}</p>
+          </div>
+          <div className="plant-card-buttons">
+            <button
+              className="plant-button delete-button"
+              onClick={() => handleDelete(plant.id)}
+            >
+              Delete
+            </button>
+            <button
+              className="plant-button edit-button"
+              onClick={() => setEditingPlantId(plant.id)}
+            >
+              Edit
+            </button>
+          </div>
           {editingPlantId === plant.id && (
-            <form onSubmit={(event) => handleUpdate(event, plant.id, {name: updatedPlantName})}>
+            <form
+              className="plant-update-form"
+              onSubmit={(event) =>
+                handleUpdate(event, plant.id, { name: updatedPlantName })
+              }
+            >
               <input
                 type="text"
+                className="plant-name"
                 placeholder="New plant name"
                 value={updatedPlantName}
                 onChange={(event) => setUpdatedPlantName(event.target.value)}
               />
-              <button type="submit">Update</button>
+              <button className="plant-button" type="submit">
+                Update
+              </button>
             </form>
           )}
         </div>
       ))}
     </div>
   );
+  
+  
 }
 
 
