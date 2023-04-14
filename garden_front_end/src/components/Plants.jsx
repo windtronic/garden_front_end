@@ -54,6 +54,7 @@ export default function Plants() {
           value={newPlantName}
           onChange={(event) => setNewPlantName(event.target.value)}
           placeholder="Plant name"
+          className="plant-name-input"
         />
         <button className="plant-button" type="submit">
           Create Plant

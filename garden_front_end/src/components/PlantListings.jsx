@@ -6,6 +6,7 @@ export default function PlantListings() {
   const { id } = useParams();
   const [plantListings, setPlantListings] = useState([]);
   const [newPlantListing, setNewPlantListing] = useState({
+    plant: id,
     name: "",
     row_spacing: "",
     seed_depth: "",
@@ -25,7 +26,7 @@ export default function PlantListings() {
     const getData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/plant_listings/${id}/`
+          `http://localhost:8000/plant_listings/?plant=${id}`
         );
         console.log([response.data]);
         setPlantListings(response.data);
@@ -36,10 +37,11 @@ export default function PlantListings() {
     getData();
   }, [id]);
 
-  const handleNewPlantListingSubmit = async (event) => {
-    event.preventDefault();
-    await axios.post(`http://localhost:8000/plant_listings/`, newPlantListing);
-    setNewPlantListing({
+ const handleNewPlantListingSubmit = async (event) => {
+  event.preventDefault();
+  await axios.post(`http://localhost:8000/plant_listings/`, {...newPlantListing,plant: id});
+  setNewPlantListing({
+      plant: id,
       name: "",
       row_spacing: "",
       seed_depth: "",
