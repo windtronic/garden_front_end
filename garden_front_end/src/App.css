@@ -36,7 +36,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 10fr));
   gap: 30px;
   text-decoration: none;
-  background-color: rgb(49, 61, 60);
+  /* background-color: rgb(49, 61, 60); */
 }
 
 .plant-name {

@@ -45,7 +45,7 @@ export default function Plants() {
     await getPlants();
   };
 
-  return (
+return (
     <div className="plant-list">
       <form onSubmit={handleCreate}>
         <input
@@ -59,14 +59,7 @@ export default function Plants() {
       {plants.map((plant) => (
         <div key={plant.id} className="plant-card">
           <Link to={`/plant_listings/${plant.id}`} className="plant-link">
-            <h2>{editingPlantId === plant.id ? 
-              <input
-                type="text"
-                placeholder="New plant name"
-                value={updatedPlantName}
-                onChange={(event) => setUpdatedPlantName(event.target.value)}
-              /> :
-              plant.name}</h2>
+            <h2>{plant.name}</h2>
           </Link>
           <p>{plant.description}</p>
           <button onClick={() => handleDelete(plant.id)}>Delete</button>
