@@ -31,35 +31,38 @@ const Weather = () => {
   const currentDate = new Date().toISOString().split('T')[0];
 
   return (
-  <div>
     <div>
-      <h2>2-day forecast for {weatherData.location.name}</h2>
-      {weatherData.forecast && weatherData.forecast.forecastday ? (
-        weatherData.forecast.forecastday
-          // Filter out the first day in the forecast that matches the current date
-          .filter(day => day.date !== currentDate)
-          // Take the first three days in the filtered forecast array
-          .slice(0, 2)
-          .map(day => (
-            <div key={day.date}>
-              <h3>{formatDate(day.date)}</h3>
-              <p>High: {day.day.maxtemp_f}°F</p>
-              <p>Low: {day.day.mintemp_f}°F</p>
-              <p>Condition: {day.day.condition.text}</p>
-            </div>
-          ))
+      {error ? (
+        <p>Failed to retrieve weather data</p>
+      ) : weatherData ? (
+        <div>
+          <h2>2-day forecast for {weatherData.location.name}</h2>
+          {weatherData.forecast && weatherData.forecast.forecastday ? (
+            weatherData.forecast.forecastday
+              // Filter out the first day in the forecast that matches the current date
+              .filter(day => day.date !== currentDate)
+              // Take the first three days in the filtered forecast array
+              .slice(0, 2)
+              .map(day => (
+                <div key={day.date}>
+                  <h3>{formatDate(day.date)}</h3>
+                  <p>High: {day.day.maxtemp_f}°F</p>
+                  <p>Low: {day.day.mintemp_f}°F</p>
+                  <p>Condition: {day.day.condition.text}</p>
+                </div>
+              ))
+          ) : (
+            <p>No forecast data available</p>
+          )}
+          <h2>Current weather for {weatherData.location.name}</h2>
+          <p>Temperature: {weatherData.current.temp_f}°F</p>
+          <p>Condition: {weatherData.current.condition.text}</p>
+        </div>
       ) : (
         <p>Loading weather data...</p>
       )}
     </div>
-    <div>
-      <h2>Current weather for {weatherData.location.name}</h2>
-      <p>Temperature: {weatherData.current.temp_f}°F</p>
-      <p>Condition: {weatherData.current.condition.text}</p>
-    </div>
-  </div>
-);
-
+  );
 };
 
 export default Weather;
