@@ -11,6 +11,7 @@ export default function Plants() {
   const getPlants = async () => {
     const response = await axios.get(`http://localhost:8000/plants/`);
     setPlants(response.data);
+    localStorage.setItem("plants", JSON.stringify(response.data));
   };
 
   useEffect(() => {
