@@ -47,6 +47,7 @@ export default function Plants() {
   };
 
   return (
+     <div className="plant-page">
     <div className="plant-list">
       <form onSubmit={handleCreate}>
         <input
@@ -103,6 +104,7 @@ export default function Plants() {
           )}
         </div>
       ))}
+    </div>
     </div>
   );
   
