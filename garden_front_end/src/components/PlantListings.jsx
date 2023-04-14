@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 export default function PlantListings() {
   const { id } = useParams();
   const [plantListings, setPlantListings] = useState(null);
-   const [plant, setPlant] = useState(null);
+  const [plant, setPlant] = useState(null);
   const [newPlantListing, setNewPlantListing] = useState({
     plant: id,
     name: "",
@@ -23,18 +23,21 @@ export default function PlantListings() {
     date_to_plant: "",
   });
 
-useEffect(() => {
-  const getData = async () => {
-    try {
-      const response = await axios.get(`http://localhost:8000/plant_listings/?plant=${id}`);
-      setPlantListings(response.data.filter(listing => listing.plant === Number(id)));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  getData();
-}, [id]);
-
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8000/plant_listings/?plant=${id}`
+        );
+        setPlantListings(
+          response.data.filter((listing) => listing.plant === Number(id))
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
+  }, [id]);
 
   const handleNewPlantListingSubmit = async (event) => {
     event.preventDefault();
@@ -74,59 +77,33 @@ useEffect(() => {
   if (!plantListings) {
     return <h1>Loading...</h1>;
   } else {
-return (
-  <div className="plant-listing-page">
-    {plantListings.length > 0 && (
-      <div key={plantListings[0].id} className="plant-info-box">
-        <h2>{plantListings[0].name}</h2>
-        <p>Row Spacing: {plantListings[0].row_spacing}</p>
-        <p>Seed Depth: {plantListings[0].seed_depth}</p>
-        <p>Sunlight Needs: {plantListings[0].sunlight_needs}</p>
-        <p>Season: {plantListings[0].season}</p>
-        <p>Water Needs: {plantListings[0].water_needs}</p>
-        <p>Frost Tolerance: {plantListings[0].frost_tolerance}</p>
-        <p>Germination Time: {plantListings[0].germination_time}</p>
-        <p>Harvest Times: {plantListings[0].harvest_times}</p>
-
-        <p>
-          {" "}
-          Grow from Transplant:
-          <select
-            value={newPlantListing.grow_from_transplant}
-            onChange={handleNewPlantListingChange}
-            name="grow_from_transplant"
-          >
-            <option value={true}>Yes</option>
-            <option value={false}>No</option>
-          </select>
-        </p>
-        <p>
-          Grow from Seed:
-          <select
-            value={newPlantListing.grow_from_seed}
-            onChange={handleNewPlantListingChange}
-            name="grow_from_seed"
-          >
-            <option value={true}>Yes</option>
-            <option value={false}>No</option>
-          </select>
-        </p>
-
-        <p>
-          Plant Needs Fertilization:
-          <select
-            value={newPlantListing.plant_needs_fertilization}
-            onChange={handleNewPlantListingChange}
-            name="plant_needs_fertilization"
-          >
-            <option value={true}>Yes</option>
-            <option value={false}>No</option>
-          </select>
-        </p>
-
-        <p>Date to Plant: {plantListings[0].date_to_plant}</p>
-      </div>
- )}
+    return (
+      <div className="plant-listing-page">
+        {plantListings.length > 0 && (
+          <div key={plantListings[0].id} className="plant-info-box">
+            <h2>{plantListings[0].name}</h2>
+            <p>Row Spacing: {plantListings[0].row_spacing}</p>
+            <p>Seed Depth: {plantListings[0].seed_depth}</p>
+            <p>Sunlight Needs: {plantListings[0].sunlight_needs}</p>
+            <p>Season: {plantListings[0].season}</p>
+            <p>Water Needs: {plantListings[0].water_needs}</p>
+            <p>Frost Tolerance: {plantListings[0].frost_tolerance}</p>
+            <p>Germination Time: {plantListings[0].germination_time}</p>
+            <p>Harvest Times: {plantListings[0].harvest_times}</p>
+            <p>
+              Grow from Transplant:{" "}
+              {plantListings[0].grow_from_transplant ? "Yes" : "No"}
+            </p>
+            <p>
+              Grow from Seed: {plantListings[0].grow_from_seed ? "Yes" : "No"}
+            </p>
+            <p>
+              Plant Needs Fertilization:{" "}
+              {plantListings[0].plant_needs_fertilization ? "Yes" : "No"}
+            </p>
+            <p>Date to Plant: {plantListings[0].date_to_plant}</p>
+          </div>
+        )}
         <div className="create-plant-listing-box">
           <form onSubmit={handleNewPlantListingSubmit}>
             <input
@@ -199,7 +176,33 @@ return (
               name="date_to_plant"
               placeholder="Date to Plant"
             />
-
+            Grow from Transplant:
+            <select
+              value={newPlantListing.grow_from_transplant}
+              onChange={handleNewPlantListingChange}
+              name="grow_from_transplant"
+            >
+              <option value={true}>Yes</option>
+              <option value={false}>No</option>
+            </select>
+            Grow from Seed:
+            <select
+              value={newPlantListing.grow_from_seed}
+              onChange={handleNewPlantListingChange}
+              name="grow_from_seed"
+            >
+              <option value={true}>Yes</option>
+              <option value={false}>No</option>
+            </select>
+            Plant Needs Fertilization:
+            <select
+              value={newPlantListing.plant_needs_fertilization}
+              onChange={handleNewPlantListingChange}
+              name="plant_needs_fertilization"
+            >
+              <option value={true}>Yes</option>
+              <option value={false}>No</option>
+            </select>
             <button type="submit">Create New Plant Listing</button>
           </form>
         </div>
