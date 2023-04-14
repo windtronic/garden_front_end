@@ -390,3 +390,69 @@ div.rbc-today {
   color: red;
   margin-bottom: 10px;
 }
+
+
+
+
+/* Styles for Weather component */
+
+
+.weather-card {
+  background-color: rgb(185, 180, 225);
+  border-radius: 15px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5px;
+  margin-left: 300px;
+  margin-right: 300px;
+  padding: 0px;
+}
+
+.weather-card h3 {
+  font-size: 24px;
+  margin-bottom: 0px;
+}
+
+.weather-card p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.weather-card .high {
+  color: #b72828;
+}
+
+.weather-card .low {
+  color: #093656;
+}
+
+.weather-card .condition {
+  font-style: italic;
+}
+
+.weather-container {
+  background-color: #5c768e;
+  padding: 2px;
+  height: 100vh;
+}
+
+.forecast {
+  margin-bottom: 20px;
+  font-size: 60px;
+}
+
+.forecast h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.current-weather h2 {
+  font-size: 24px;
+  margin-top:0px;
+   background-color: #5c768e;
+}
+
+.current-weather p {
+  font-size: 24px;
+  margin: 0;
+  background-color: #5c768e;
+}
