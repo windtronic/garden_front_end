@@ -21,6 +21,9 @@ export default function Header() {
             <Link to="/garden_layout" className="nav-link">
                 <h1 className="header-text">Garden Layout</h1></Link>
 
+             <Link to="/weather" className="nav-link">
+                <h1 className="header-text">Weather</h1></Link>
+
              <Link to="/login" className="nav-link">
                 <h1 className="header-text">Login</h1></Link>    
 
