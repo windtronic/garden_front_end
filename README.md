@@ -60,5 +60,7 @@ This project was built using React.js on the front end and Django for my backend
 - [React-Big-Calendar](https://www.npmjs.com/package//react-big-calendar)
 - [Material-UI](https://mui.com/material-ui/getting-started/overview/)(https://www.npmjs.com/package/       
 material-ui-popup-state)(https://www.npmjs.com/package/input-material-ui)
+- [React UseSring](https://react-spring.dev/docs)
+- [React UseGesture](https://www.npmjs.com/package/react-use-gesture)
 
 
