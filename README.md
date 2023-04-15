@@ -3,8 +3,8 @@
 
 
 # My-Gardening-App
-Welcome to My Gardening App! Here you will find the vegetables and herbs I grow here in Arvada, Colorado. 
-This project was built using React.js on the front end and Django for our backend API. 
+Welcome to My Gardening App! Here you will find the plants I grow here in Arvada, Colorado. 
+This project was built using React.js on the front end and Django for my backend API. 
 
 
 
