@@ -1,5 +1,14 @@
 # garden_front_end
 
+- ![Home](https://i.imgur.com/jaCaiZV.jpg)
+
+- ![Plants](https://i.imgur.com/c17TRTX.png)
+
+- ![Plant Listings](https://i.imgur.com/Op2flNp.png)
+
+- ![Garden Layout](https://i.imgur.com/cK9hx9s.png)
+
+
 
 
 # My-Gardening-App
