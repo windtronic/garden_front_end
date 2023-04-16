@@ -1,4 +1,4 @@
-# garden_front_end
+# My Gardening App
 
 - ![Home](https://i.imgur.com/jaCaiZV.jpg)
 
