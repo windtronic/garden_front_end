@@ -12,7 +12,7 @@ function Register() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios.post('http://localhost:8000/users/', {
+    axios.post('https://garden-api-un9v.onrender.com/users/', {
       name: name,
       address: address,
       email: email,

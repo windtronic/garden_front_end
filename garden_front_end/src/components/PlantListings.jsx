@@ -22,13 +22,13 @@ export default function PlantListings() {
     grow_from_transplant: false,
     plant_needs_fertilization: false,
     date_to_plant: "",
-  });
+ });
 
   useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/plant_listings/?plant=${id}`
+          `https://garden-api-un9v.onrender.com/plant_listings/?plant=${id}`
         );
         setPlantListings(
           response.data.filter((listing) => listing.plant === Number(id))
@@ -42,7 +42,7 @@ export default function PlantListings() {
 
   const handleNewPlantListingSubmit = async (event) => {
     event.preventDefault();
-    await axios.post(`http://localhost:8000/plant_listings/`, {
+    await axios.post(`https://garden-api-un9v.onrender.com/plant_listings/`, {
       ...newPlantListing,
       plant: id,
     });

@@ -9,7 +9,7 @@ export default function Plants() {
   const [editingPlantId, setEditingPlantId] = useState(null);
 
   const getPlants = async () => {
-    const response = await axios.get(`http://localhost:8000/plants/`);
+    const response = await axios.get(`https://garden-api-un9v.onrender.com/plants/`);
     setPlants(response.data);
     localStorage.setItem("plants", JSON.stringify(response.data));
   };
@@ -19,7 +19,7 @@ export default function Plants() {
   }, []);
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:8000/plants/${id}/`);
+    await axios.delete(`https://garden-api-un9v.onrender.com/plants/${id}/`);
     await getPlants();
   };
 
@@ -29,7 +29,7 @@ export default function Plants() {
       user: 8, 
       name: newPlantName,
     };
-    await axios.post(`http://localhost:8000/plants/`, newPlant);
+    await axios.post(`https://garden-api-un9v.onrender.com/plants/`, newPlant);
     setNewPlantName("");
     await getPlants();
   };
@@ -40,7 +40,7 @@ export default function Plants() {
       user: 8, 
       ...updates,
     };
-    await axios.put(`http://localhost:8000/plants/${id}/`, updatedPlant);
+    await axios.put(`https://garden-api-un9v.onrender.com/plants/${id}/`, updatedPlant);
     setEditingPlantId(null);
     setUpdatedPlantName("");
     await getPlants();
