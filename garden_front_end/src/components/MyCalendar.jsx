@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { Popover, TextField, Button } from "@material-ui/core";
+import { Popover, TextField, Button } from "@mui/material";
+
 
 export default function MyCalendar({ initialEvents }) {
   const [eventsData, setEventsData] = useState(
