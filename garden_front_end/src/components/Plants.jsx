@@ -28,6 +28,7 @@ export default function Plants() {
     const newPlant = {
       user: 1, 
       name: newPlantName,
+      plant_listings: Math.floor(Math.random() * 100) + 1
     };
     await axios.post(`https://garden-api-un9v.onrender.com/plants/`, newPlant);
     setNewPlantName("");
@@ -39,6 +40,7 @@ export default function Plants() {
     const updatedPlant = {
       user: 1, 
       ...updates,
+      plant_listings: Math.floor(Math.random() * 100) + 1
     };
     await axios.put(`https://garden-api-un9v.onrender.com/plants/${id}/`, updatedPlant);
     setEditingPlantId(null);
