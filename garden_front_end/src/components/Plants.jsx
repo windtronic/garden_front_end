@@ -26,7 +26,7 @@ export default function Plants() {
   const handleCreate = async (event) => {
     event.preventDefault();
     const newPlant = {
-      user: 8, 
+      user: 1, 
       name: newPlantName,
     };
     await axios.post(`https://garden-api-un9v.onrender.com/plants/`, newPlant);
@@ -37,7 +37,7 @@ export default function Plants() {
   const handleUpdate = async (event, id, updates) => {
     event.preventDefault();
     const updatedPlant = {
-      user: 8, 
+      user: 1, 
       ...updates,
     };
     await axios.put(`https://garden-api-un9v.onrender.com/plants/${id}/`, updatedPlant);
