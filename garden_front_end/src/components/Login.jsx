@@ -10,11 +10,23 @@ function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (email === 'fake@email.com' && password === 'fake123') {
-      navigate('/');
-    } else {
-      setError('Invalid email or password.');
-    }
+    const credentials = {
+      email,
+      password,
+    };
+  
+    axios.post('https://garden-api-un9v.onrender.com/users/', credentials)
+      .then((response) => {
+        // Assuming the backend returns a token or some authentication information
+        const authToken = response.data.token;
+        // Store the token in local storage or a secure cookie for future authenticated requests
+  
+        // Redirect the user to the home page or another authorized page
+        navigate('/');
+      })
+      .catch((error) => {
+        setError('Invalid email or password.');
+      });
   }
 
   return (
