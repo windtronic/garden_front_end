@@ -9,7 +9,7 @@ const Weather = () => {
     const getData = async () => {
       try {
         const response = await axios.get(
-          `http://api.weatherapi.com/v1/forecast.json?key=639cf580b57b4d7da1300306231404&q=Arvada_Colorado&days=5`
+          `https://api.weatherapi.com/v1/forecast.json?key=639cf580b57b4d7da1300306231404&q=Arvada_Colorado&days=5`
         );
         setWeatherData(response.data);
       } catch (error) {
