@@ -39,7 +39,7 @@ const Weather = () => {
         <p>Failed to retrieve weather data</p>
       ) : weatherData ? (
         <div>
-          <h2>4 Day Forecast For {weatherData.location.name}, CO</h2>
+          <h2>2 Day Forecast For {weatherData.location.name}, CO</h2>
           {weatherData.forecast && weatherData.forecast.forecastday ? (
             weatherData.forecast.forecastday
 
