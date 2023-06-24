@@ -13,6 +13,7 @@ function Login() {
     const credentials = {
       email,
       password,
+      csrfmiddlewaretoken: '{{ csrf_token }}', // Include the CSRF token
     };
 
     axios
