@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-
-  const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -15,13 +14,10 @@ function Login() {
       email,
       password,
     };
-  
-    axios.post('https://garden-api-un9v.onrender.com/login/', credentials)
-      .then((response) => {
-        // Assuming the backend returns a token or some authentication information
-        const authToken = response.data.token;
-        // Store the token in local storage or a secure cookie for future authenticated requests
-  
+
+    axios
+      .post('https://garden-api-un9v.onrender.com/login/', credentials, { withCredentials: true })
+      .then(() => {
         // Redirect the user to the home page or another authorized page
         navigate('/');
       })
@@ -35,11 +31,11 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <label>
           Email:
-          <input type="text" value={email} onChange={event => setEmail(event.target.value)} />
+          <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
         </label>
         <label>
           Password:
-          <input type="password" value={password} onChange={event => setPassword(event.target.value)} />
+          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
         </label>
         {error && <div style={{ color: 'red' }}>{error}</div>}
         <button type="submit">Login</button>
@@ -49,3 +45,4 @@ function Login() {
 }
 
 export default Login;
+
