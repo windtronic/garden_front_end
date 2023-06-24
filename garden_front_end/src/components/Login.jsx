@@ -16,7 +16,7 @@ function Login() {
       password,
     };
   
-    axios.post('https://garden-api-un9v.onrender.com/users/', credentials)
+    axios.post('https://garden-api-un9v.onrender.com/login/', credentials)
       .then((response) => {
         // Assuming the backend returns a token or some authentication information
         const authToken = response.data.token;
