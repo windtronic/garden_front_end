@@ -13,6 +13,8 @@ function Login() {
       password,
     };
 
+    console.log(credentials)
+
     axios.post('https://garden-api-un9v.onrender.com/login/', credentials)
       .then(response => {
         // Handle success response
