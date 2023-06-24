@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Login from './Login'
 
 function Register() {
   const [name, setName] = useState('');
@@ -12,7 +13,8 @@ function Register() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios.post('https://garden-api-un9v.onrender.com/users/', {
+  axios
+    .post('https://garden-api-un9v.onrender.com/users/', {
       name: name,
       address: address,
       email: email,
@@ -20,19 +22,17 @@ function Register() {
     })
     .then(response => {
       console.log(response);
-     
       setName('');
       setAddress('');
       setEmail('');
       setPassword('');
-      
-      navigate('/login');
+      navigate('/login', { state: { registeredEmail: email, registeredPassword: password } }); // Pass the registered email and password as props to the Login component
     })
     .catch(error => {
       console.error(error);
       setError('An error occurred while trying to register.');
     });
-  }
+}
 
   return (
     <div className="register-card">

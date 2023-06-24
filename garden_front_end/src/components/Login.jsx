@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const registeredEmail = location.state && location.state.registeredEmail; // Retrieve the registered email from the location state
+  const registeredPassword = location.state && location.state.registeredPassword; // Retrieve the registered password from the location state
+
+  // Set the registered email and password as initial values in the login form
+  useState(() => {
+    if (registeredEmail && registeredPassword) {
+      setEmail(registeredEmail);
+      setPassword(registeredPassword);
+    }
+  }, [registeredEmail, registeredPassword]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -13,15 +27,14 @@ function Login() {
       password,
     };
 
-    console.log(credentials)
-
-    axios.post('https://garden-api-un9v.onrender.com/login/', credentials)
+    axios
+      .post('https://garden-api-un9v.onrender.com/login/', credentials)
       .then(response => {
-        // Handle success response
         console.log(response.data);
+        // Handle successful login
+        navigate('/'); // Redirect to the home page or another authorized page
       })
       .catch(error => {
-        // Handle error response
         console.error(error);
         setError('Invalid email or password.');
       });
