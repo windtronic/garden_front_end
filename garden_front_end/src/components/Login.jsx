@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 function Login() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -13,16 +11,16 @@ function Login() {
     const credentials = {
       email,
       password,
-      csrfmiddlewaretoken: '{{ csrf_token }}', // Include the CSRF token
     };
 
-    axios
-      .post('https://garden-api-un9v.onrender.com/login/', credentials, { withCredentials: true })
-      .then(() => {
-        // Redirect the user to the home page or another authorized page
-        navigate('/');
+    axios.post('https://garden-api-un9v.onrender.com/login/', credentials)
+      .then(response => {
+        // Handle success response
+        console.log(response.data);
       })
-      .catch((error) => {
+      .catch(error => {
+        // Handle error response
+        console.error(error);
         setError('Invalid email or password.');
       });
   }
@@ -32,11 +30,11 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <label>
           Email:
-          <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
+          <input type="text" value={email} onChange={event => setEmail(event.target.value)} />
         </label>
         <label>
           Password:
-          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+          <input type="password" value={password} onChange={event => setPassword(event.target.value)} />
         </label>
         {error && <div style={{ color: 'red' }}>{error}</div>}
         <button type="submit">Login</button>
@@ -46,4 +44,5 @@ function Login() {
 }
 
 export default Login;
+
 
